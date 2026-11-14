@@ -228,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
         body.linearVelocity = new Vector2(body.linearVelocity.x, groundSlamSpeed);
         Physics2D.IgnoreCollision(playerCollider, hit.collider, false);
         
-
+        
     }
 
     private RaycastHit2D CreateRaycast()
