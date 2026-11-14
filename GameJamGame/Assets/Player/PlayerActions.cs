@@ -151,6 +151,16 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""initialStateCheck"": false,
                     ""priority"": 0
+                },
+                {
+                    ""name"": ""StandardAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""2e4ba628-b2a2-4dfa-8fb7-0762a09d2fe4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
                 }
             ],
             ""bindings"": [
@@ -241,6 +251,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""GroundSlam"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e7b72101-5c94-458c-83d9-069dffec2646"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StandardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -255,6 +276,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_PlayerControls_TakeDamage = m_PlayerControls.FindAction("TakeDamage", throwIfNotFound: true);
         m_PlayerControls_Dash = m_PlayerControls.FindAction("Dash", throwIfNotFound: true);
         m_PlayerControls_GroundSlam = m_PlayerControls.FindAction("GroundSlam", throwIfNotFound: true);
+        m_PlayerControls_StandardAttack = m_PlayerControls.FindAction("StandardAttack", throwIfNotFound: true);
     }
 
     ~@PlayerActions()
@@ -341,6 +363,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControls_TakeDamage;
     private readonly InputAction m_PlayerControls_Dash;
     private readonly InputAction m_PlayerControls_GroundSlam;
+    private readonly InputAction m_PlayerControls_StandardAttack;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerControls".
     /// </summary>
@@ -376,6 +399,10 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerControls/GroundSlam".
         /// </summary>
         public InputAction @GroundSlam => m_Wrapper.m_PlayerControls_GroundSlam;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/StandardAttack".
+        /// </summary>
+        public InputAction @StandardAttack => m_Wrapper.m_PlayerControls_StandardAttack;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -420,6 +447,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @GroundSlam.started += instance.OnGroundSlam;
             @GroundSlam.performed += instance.OnGroundSlam;
             @GroundSlam.canceled += instance.OnGroundSlam;
+            @StandardAttack.started += instance.OnStandardAttack;
+            @StandardAttack.performed += instance.OnStandardAttack;
+            @StandardAttack.canceled += instance.OnStandardAttack;
         }
 
         /// <summary>
@@ -449,6 +479,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @GroundSlam.started -= instance.OnGroundSlam;
             @GroundSlam.performed -= instance.OnGroundSlam;
             @GroundSlam.canceled -= instance.OnGroundSlam;
+            @StandardAttack.started -= instance.OnStandardAttack;
+            @StandardAttack.performed -= instance.OnStandardAttack;
+            @StandardAttack.canceled -= instance.OnStandardAttack;
         }
 
         /// <summary>
@@ -531,5 +564,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnGroundSlam(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "StandardAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnStandardAttack(InputAction.CallbackContext context);
     }
 }
