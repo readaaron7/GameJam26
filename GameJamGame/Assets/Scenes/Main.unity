@@ -1531,7 +1531,11 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   MinDistance: 1.2283592
+=======
+  MinDistance: 1
+>>>>>>> parent of 4310cd8 (conflicts)
 =======
   MinDistance: 1
 >>>>>>> parent of 4310cd8 (conflicts)
@@ -1620,8 +1624,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 86.26, y: 17.91, z: 0}
   m_LocalScale: {x: 0.62523, y: 0.62523, z: 0.62523}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> parent of 4310cd8 (conflicts)
 =======
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1697,11 +1705,19 @@ PrefabInstance:
     - target: {fileID: 7970209543686200236, guid: 51f187ef0ff5f0b488ec275d607482e0, type: 3}
       propertyPath: m_LocalPosition.x
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 99.17
       objectReference: {fileID: 0}
     - target: {fileID: 7970209543686200236, guid: 51f187ef0ff5f0b488ec275d607482e0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.62
+=======
+      value: 102.85127
+      objectReference: {fileID: 0}
+    - target: {fileID: 7970209543686200236, guid: 51f187ef0ff5f0b488ec275d607482e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.5829
+>>>>>>> parent of 4310cd8 (conflicts)
 =======
       value: 102.85127
       objectReference: {fileID: 0}
