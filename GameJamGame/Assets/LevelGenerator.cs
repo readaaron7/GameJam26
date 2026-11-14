@@ -12,7 +12,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private int combatRoomCount;
     [SerializeField] private float roomWidth;
 
-    private Vector3 currentPosition = new Vector3(9.5f, 0 ,0);
+    private Vector3 currentPosition = new Vector3(31f, 0 ,0);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
