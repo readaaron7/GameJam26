@@ -1578,19 +1578,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  MinDistance: 1.2283592
-=======
   MinDistance: 1
->>>>>>> parent of 4310cd8 (conflicts)
-=======
-  MinDistance: 1
->>>>>>> parent of 4310cd8 (conflicts)
-=======
-  MinDistance: 1
->>>>>>> parent of 4310cd8 (conflicts)
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1675,23 +1663,8 @@ Transform:
   m_GameObject: {fileID: 1903393971}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   m_LocalPosition: {x: 86.26, y: 17.91, z: 0}
   m_LocalScale: {x: 0.62523, y: 0.62523, z: 0.62523}
-=======
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
->>>>>>> parent of 4310cd8 (conflicts)
-=======
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
->>>>>>> parent of 4310cd8 (conflicts)
-=======
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
->>>>>>> parent of 4310cd8 (conflicts)
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
