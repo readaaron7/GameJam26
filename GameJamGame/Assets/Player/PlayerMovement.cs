@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.red;
 
         Gizmos.DrawLine(
-            (Vector2)transform.position + Vector2.down * 0.8f,
+            (Vector2)transform.position + Vector2.down * .8f,
             transform.position + Vector3.down * groundCheckDistance
         );
     }
@@ -223,14 +223,17 @@ public class PlayerMovement : MonoBehaviour
         Physics2D.IgnoreCollision(playerCollider, hit.collider, true);
 
         // waits 0.25 seconds, then continues
-        yield return new WaitForSeconds(0.25f);
-
+        
+        yield return new WaitForSeconds(.17f);
+        body.linearVelocity = new Vector2(body.linearVelocity.x, groundSlamSpeed);
         Physics2D.IgnoreCollision(playerCollider, hit.collider, false);
+        
+
     }
 
     private RaycastHit2D CreateRaycast()
     {
-        Vector2 rayPosition = (Vector2)transform.position + Vector2.down * 0.5f;
+        Vector2 rayPosition = (Vector2)transform.position + Vector2.down * 0.3f;
 
         RaycastHit2D hit = Physics2D.Raycast(
             rayPosition,

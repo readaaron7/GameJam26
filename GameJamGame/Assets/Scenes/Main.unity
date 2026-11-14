@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 10
   jumpPower: 15
-  groundSlamSpeed: -15
+  groundSlamSpeed: -50
   dashSpeed: 30
   playerCollider: {fileID: 1203515169}
   groundCheckDistance: 1.1
