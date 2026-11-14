@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [SerializeField] private Image[] hearts;
+    [SerializeField] private Animator animator;
     private PlayerActions controls;
 
     private int currentHealth;
@@ -49,6 +50,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            animator.speed = 0f;
             Debug.Log("player dead");
         }
 

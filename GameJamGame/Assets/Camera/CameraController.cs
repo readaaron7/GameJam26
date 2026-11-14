@@ -4,6 +4,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private float roomWidth;
+    [SerializeField] private float roomHeight;
     [SerializeField] private float moveSpeed;
     private Vector3 targetPosition;
 
@@ -16,11 +17,15 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        int roomIndex = Mathf.FloorToInt(player.position.x / roomWidth);
+        // calcules both room indexes based on the player's position
+        int roomX = Mathf.FloorToInt(player.position.x / roomWidth);
+        int roomY = Mathf.FloorToInt(player.position.y / roomHeight);
 
-        float targetX = roomIndex * roomWidth + roomWidth / 2f;
+        // calcultes the target position for the camera to move
+        float targetX = roomX * roomWidth + roomWidth / 2f;
+        float targetY = roomY * roomHeight + roomHeight / 2f;
 
-        targetPosition = new Vector3(targetX, transform.position.y, transform.position.z);
+        targetPosition = new Vector3(targetX, targetY, transform.position.z);
         
         
         transform.position = Vector3.Lerp(
@@ -28,13 +33,5 @@ public class CameraController : MonoBehaviour
             targetPosition,
             moveSpeed * Time.deltaTime
         );
-    }
-
-    public void MoveToRoom(Vector3 roomCenter)
-    {
-        Debug.Log(roomCenter.x);
-        Debug.Log(roomCenter.y);
-        
-        targetPosition = new Vector3(roomCenter.x, roomCenter.y, transform.position.z);
     }
 }

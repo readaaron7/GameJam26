@@ -4,17 +4,22 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     [Header("Room Prefabs")]
-    [SerializeField] private GameObject[] combatRooms;
+    [SerializeField] private GameObject[] biome1Rooms;
+    [SerializeField] private GameObject[] biome2Rooms;
+    [SerializeField] private GameObject[] biome3Rooms;
     [SerializeField] private GameObject treasureRoom;
     [SerializeField] private GameObject bossRoom;
 
     [Header("Generation Settings")]
-    [SerializeField] private int combatRoomCount;
+    [SerializeField] private int biome1RoomCount;
+    [SerializeField] private int biome2RoomCount;
+    [SerializeField] private int biome3RoomCount;
+    
     [SerializeField] private float roomWidth;
 
-    private int[] counting_arr = new int[3]; // counting array
+    
 
-    private Vector3 currentPosition = new Vector3(32f, 0 ,0);
+    private Vector3 currentPosition = new Vector3(32f, -5 ,0);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -24,12 +29,16 @@ public class LevelGenerator : MonoBehaviour
 
     private void GenerateLevel()
     {
-        SpawnRandomCombatRooms();
+        SpawnRandomRoom(biome1Rooms, biome1RoomCount);
+        SpawnRandomRoom(biome2Rooms, biome2RoomCount);
     }
 
-    private void SpawnRandomCombatRooms()
+    private void SpawnRandomRoom(GameObject[] biomeRooms, int biomeRoomCount)
     {
-        for (int i = 0; i < combatRoomCount; i++)
+        int[] counting_arr = new int[biomeRooms.Length]; // counting array
+
+        // iterates thorugh all biome rooms
+        for (int i = 0; i < biomeRoomCount; i++)
         {
             bool valid = false;
             int randIndex = 0;
@@ -37,7 +46,7 @@ public class LevelGenerator : MonoBehaviour
             do
             {
                 // generates a random index
-                randIndex = Random.Range(0, combatRooms.Length);
+                randIndex = Random.Range(0, biomeRooms.Length);
 
                 if (counting_arr[randIndex] == 0)
                 {
@@ -52,7 +61,7 @@ public class LevelGenerator : MonoBehaviour
             // makes a copy of this game object and puts it into the scene
             // copies the combat room prefab at randIndex, places it at the current
             // position, and puts it at rotation 0 degrees
-            Instantiate(combatRooms[randIndex], currentPosition, Quaternion.identity);
+            Instantiate(biomeRooms[randIndex], currentPosition, Quaternion.identity);
 
             currentPosition.x += roomWidth;
         }
