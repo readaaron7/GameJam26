@@ -40,9 +40,6 @@
                     "name": "TakeDamage",
                     "type": "Button",
                     "id": "4c79e290-1abb-4b14-bf19-e99959b16af8",
-                    "name": "GroundSlam",
-                    "type": "Button",
-                    "id": "45cdace7-b513-4a87-80e7-e8d2ec532ad7",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -53,6 +50,16 @@
                     "name": "Dash",
                     "type": "Button",
                     "id": "2b84d50c-5e15-4337-9706-cf58d6a59a77",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "GroundSlam",
+                    "type": "Button",
+                    "id": "23e6a8db-eab8-4bfb-ad5a-6d2181ce7fd4",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -71,17 +78,6 @@
                     "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "down",
-                    "id": "4548a689-6c92-4a71-9c57-74d71ff2225c",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "left",
@@ -135,12 +131,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "TakeDamage",
-                    "id": "53684315-5546-4f35-8246-2ae637e1f7df",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GroundSlam",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -152,6 +142,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "310e4d19-9e0c-4fe1-9a50-02441385bd96",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroundSlam",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

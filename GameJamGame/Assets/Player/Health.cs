@@ -16,7 +16,6 @@ public class Health : MonoBehaviour
     private void Start()
     {
         currentHealth = hearts.Length;
-        Debug.Log(currentHealth);
     }
 
     // Update is called once per frame

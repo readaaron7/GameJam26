@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private int jumpsRemaining;
     private const int MAX_JUMPS = 2;
     private Rigidbody2D body;
+    [SerializeField] private Collider2D playerCollider;
 
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private LayerMask groundLayer;
@@ -97,13 +98,17 @@ public class PlayerMovement : MonoBehaviour
             );
 
 
-            // make sure player is standing on a platform
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("OneWayPlatform"))
+            if (hit.collider != null)
             {
-                // performs some logic with the player dropping through the platform,
-                // pauses everything in update, then continues after function finishes
-                StartCoroutine(DropThroughPlatform());
+                // make sure player is standing on a platform
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("OneWayPlatform"))
+                {
+                    // performs some logic with the player dropping through the platform,
+                    // pauses everything in update, then continues after function finishes
+                    StartCoroutine(DropThroughPlatform());
+                }
             }
+            
             
         }
 
@@ -215,16 +220,12 @@ public class PlayerMovement : MonoBehaviour
             yield break;
         }
 
-        // disables the platform's collider which is what the raycast hit
-        hit.collider.enabled = false;
+        Physics2D.IgnoreCollision(playerCollider, hit.collider, true);
 
         // waits 0.25 seconds, then continues
-        yield return new WaitForSeconds(0.30f);
+        yield return new WaitForSeconds(0.25f);
 
-        // enables the platform's collider which is what the raycast hit
-        hit.collider.enabled = true;
-
-
+        Physics2D.IgnoreCollision(playerCollider, hit.collider, false);
     }
 
     private RaycastHit2D CreateRaycast()
