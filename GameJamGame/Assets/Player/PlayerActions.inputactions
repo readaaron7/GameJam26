@@ -35,6 +35,16 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "TakeDamage",
+                    "type": "Button",
+                    "id": "4c79e290-1abb-4b14-bf19-e99959b16af8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -101,6 +111,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "DropThroughPlatform",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83818765-e898-458d-a3c4-f79fa249c218",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TakeDamage",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
