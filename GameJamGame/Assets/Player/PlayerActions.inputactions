@@ -65,6 +65,16 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "StandardAttack",
+                    "type": "Button",
+                    "id": "2e4ba628-b2a2-4dfa-8fb7-0762a09d2fe4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -153,6 +163,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "GroundSlam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7b72101-5c94-458c-83d9-069dffec2646",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StandardAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

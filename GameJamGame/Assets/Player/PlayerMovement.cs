@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator dash_right()
     {
-        float dash_duration = 0.30f;
+        float dash_duration = 0.15f;
         float elapsed_time = 0f;
         while(elapsed_time < dash_duration)
         {
@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
     
     private IEnumerator dash_left()
     {
-        float dash_duration = 0.30f;
+        float dash_duration = 0.15f;
         float elapsed_time = 0f;
         while(elapsed_time < dash_duration)
         {
