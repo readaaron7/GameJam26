@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpPower;
     [SerializeField] private float groundSlamSpeed;
+    [SerializeField] private float dashSpeed;
 
     // double jump logic variables
     private int jumpsRemaining;
@@ -69,6 +70,17 @@ public class PlayerMovement : MonoBehaviour
         {
             groundSlam();
         }
+
+        if(controls.PlayerControls.Dash.WasPressedThisFrame() && (body.linearVelocity.x > 0))
+        {
+            StartCoroutine(dash_right());
+        }
+
+        if(controls.PlayerControls.Dash.WasPressedThisFrame() && (body.linearVelocity.x < 0))
+        {
+            StartCoroutine(dash_left());
+        }
+
 
         // set if the player was grounded this frame
         // need to work for double jump detection
@@ -151,11 +163,40 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-
     private void Jump()
     {
         body.linearVelocity = new Vector2(body.linearVelocity.x, jumpPower);
     }
+
+
+    private IEnumerator dash_right()
+    {
+        float dash_duration = 0.30f;
+        float elapsed_time = 0f;
+        while(elapsed_time < dash_duration)
+        {
+            body.linearVelocity = new Vector2(dashSpeed, body.linearVelocity.y);
+            elapsed_time += Time.deltaTime;
+            yield return null;
+
+        }
+
+    }
+    
+    private IEnumerator dash_left()
+    {
+        float dash_duration = 0.30f;
+        float elapsed_time = 0f;
+        while(elapsed_time < dash_duration)
+        {
+            body.linearVelocity = new Vector2(-dashSpeed, body.linearVelocity.y);
+            elapsed_time += Time.deltaTime;
+            yield return null;
+            
+        }
+
+    }
+
 
     private IEnumerator DropThroughPlatform()
     {

@@ -131,6 +131,16 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""initialStateCheck"": false,
                     ""priority"": 0
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""2b84d50c-5e15-4337-9706-cf58d6a59a77"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
                 }
             ],
             ""bindings"": [
@@ -181,7 +191,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f9962d34-b090-43a3-8278-bb5e001b5b86"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -210,6 +220,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""GroundSlam"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9b8a714-7925-4a71-bd12-570d2267699c"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -222,6 +243,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_PlayerControls_Jump = m_PlayerControls.FindAction("Jump", throwIfNotFound: true);
         m_PlayerControls_DropThroughPlatform = m_PlayerControls.FindAction("DropThroughPlatform", throwIfNotFound: true);
         m_PlayerControls_GroundSlam = m_PlayerControls.FindAction("GroundSlam", throwIfNotFound: true);
+        m_PlayerControls_Dash = m_PlayerControls.FindAction("Dash", throwIfNotFound: true);
     }
 
     ~@PlayerActions()
@@ -306,6 +328,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControls_Jump;
     private readonly InputAction m_PlayerControls_DropThroughPlatform;
     private readonly InputAction m_PlayerControls_GroundSlam;
+    private readonly InputAction m_PlayerControls_Dash;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerControls".
     /// </summary>
@@ -333,6 +356,10 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerControls/GroundSlam".
         /// </summary>
         public InputAction @GroundSlam => m_Wrapper.m_PlayerControls_GroundSlam;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/Dash".
+        /// </summary>
+        public InputAction @Dash => m_Wrapper.m_PlayerControls_Dash;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -371,6 +398,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @GroundSlam.started += instance.OnGroundSlam;
             @GroundSlam.performed += instance.OnGroundSlam;
             @GroundSlam.canceled += instance.OnGroundSlam;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
         }
 
         /// <summary>
@@ -394,6 +424,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @GroundSlam.started -= instance.OnGroundSlam;
             @GroundSlam.performed -= instance.OnGroundSlam;
             @GroundSlam.canceled -= instance.OnGroundSlam;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
         }
 
         /// <summary>
@@ -462,5 +495,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnGroundSlam(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDash(InputAction.CallbackContext context);
     }
 }
