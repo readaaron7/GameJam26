@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpPower;
+    [SerializeField] private float groundSlamSpeed;
 
     // double jump logic variables
     private int jumpsRemaining;
@@ -16,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private LayerMask groundLayer;
-
+    
     private bool isGrounded;
     private bool wasGrounded;
 
@@ -64,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
             jumpsRemaining = MAX_JUMPS;
         }
 
+        if (controls.PlayerControls.GroundSlam.WasPressedThisFrame() && !isGrounded)
+        {
+            groundSlam();
+        }
+
         // set if the player was grounded this frame
         // need to work for double jump detection
         wasGrounded = isGrounded;
@@ -78,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
                 groundLayer
             );
 
+
             // make sure player is standing on a platform
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("OneWayPlatform"))
             {
@@ -87,8 +94,11 @@ public class PlayerMovement : MonoBehaviour
             }
             
         }
+
+        
         
     }
+
 
     private void OnEnable()
     {
@@ -134,6 +144,13 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+    
+    private void groundSlam()
+    {  
+        body.linearVelocity = new Vector2(0f, groundSlamSpeed);
+    }
+
+
 
     private void Jump()
     {

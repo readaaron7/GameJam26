@@ -121,6 +121,16 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""initialStateCheck"": false,
                     ""priority"": 0
+                },
+                {
+                    ""name"": ""GroundSlam"",
+                    ""type"": ""Button"",
+                    ""id"": ""45cdace7-b513-4a87-80e7-e8d2ec532ad7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
                 }
             ],
             ""bindings"": [
@@ -189,6 +199,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""DropThroughPlatform"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53684315-5546-4f35-8246-2ae637e1f7df"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GroundSlam"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -200,6 +221,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_PlayerControls_Move = m_PlayerControls.FindAction("Move", throwIfNotFound: true);
         m_PlayerControls_Jump = m_PlayerControls.FindAction("Jump", throwIfNotFound: true);
         m_PlayerControls_DropThroughPlatform = m_PlayerControls.FindAction("DropThroughPlatform", throwIfNotFound: true);
+        m_PlayerControls_GroundSlam = m_PlayerControls.FindAction("GroundSlam", throwIfNotFound: true);
     }
 
     ~@PlayerActions()
@@ -283,6 +305,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControls_Move;
     private readonly InputAction m_PlayerControls_Jump;
     private readonly InputAction m_PlayerControls_DropThroughPlatform;
+    private readonly InputAction m_PlayerControls_GroundSlam;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerControls".
     /// </summary>
@@ -306,6 +329,10 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerControls/DropThroughPlatform".
         /// </summary>
         public InputAction @DropThroughPlatform => m_Wrapper.m_PlayerControls_DropThroughPlatform;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/GroundSlam".
+        /// </summary>
+        public InputAction @GroundSlam => m_Wrapper.m_PlayerControls_GroundSlam;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -341,6 +368,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @DropThroughPlatform.started += instance.OnDropThroughPlatform;
             @DropThroughPlatform.performed += instance.OnDropThroughPlatform;
             @DropThroughPlatform.canceled += instance.OnDropThroughPlatform;
+            @GroundSlam.started += instance.OnGroundSlam;
+            @GroundSlam.performed += instance.OnGroundSlam;
+            @GroundSlam.canceled += instance.OnGroundSlam;
         }
 
         /// <summary>
@@ -361,6 +391,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @DropThroughPlatform.started -= instance.OnDropThroughPlatform;
             @DropThroughPlatform.performed -= instance.OnDropThroughPlatform;
             @DropThroughPlatform.canceled -= instance.OnDropThroughPlatform;
+            @GroundSlam.started -= instance.OnGroundSlam;
+            @GroundSlam.performed -= instance.OnGroundSlam;
+            @GroundSlam.canceled -= instance.OnGroundSlam;
         }
 
         /// <summary>
@@ -422,5 +455,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDropThroughPlatform(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "GroundSlam" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGroundSlam(InputAction.CallbackContext context);
     }
 }
