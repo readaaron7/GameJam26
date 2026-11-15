@@ -658,63 +658,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &650539119
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2909607521810322277, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2909607521810322277, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2909607521810322277, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2909607521810322277, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2909607521810322277, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2909607521810322277, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2909607521810322277, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2909607521810322277, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2909607521810322277, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2909607521810322277, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3626080960510752778, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
-      propertyPath: m_Name
-      value: CombatRoom_A
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
 --- !u!1 &750511968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,8 +1104,8 @@ Transform:
   m_GameObject: {fileID: 1203515164}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: -4.57, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 10, y: -4.69, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1188,6 +1131,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 320
+  cam: {fileID: 519420033}
 --- !u!50 &1203515168
 Rigidbody2D:
   serializedVersion: 5
@@ -1632,8 +1576,8 @@ Transform:
   m_GameObject: {fileID: 1903393971}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 86.26, y: 17.91, z: 0}
-  m_LocalScale: {x: 0.62523, y: 0.62523, z: 0.62523}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1759,19 +1703,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelGenerator
   biome1Rooms:
   - {fileID: 3626080960510752778, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
+  - {fileID: 415292441413070556, guid: bc8fdf879c907d040b4bcd0d6d103788, type: 3}
   - {fileID: 7664761247907676086, guid: ea10934021b7b784680f0cce658d444c, type: 3}
   - {fileID: 4069558526169530997, guid: 849edc960cdb85c4b8a729d2d4a1edd3, type: 3}
+  - {fileID: 8516215538992065930, guid: 5ae298d99d940934fb2b6740a29abb29, type: 3}
   biome2Rooms:
   - {fileID: 3626080960510752778, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
+  - {fileID: 415292441413070556, guid: bc8fdf879c907d040b4bcd0d6d103788, type: 3}
   - {fileID: 7664761247907676086, guid: ea10934021b7b784680f0cce658d444c, type: 3}
-  - {fileID: 4069558526169530997, guid: 849edc960cdb85c4b8a729d2d4a1edd3, type: 3}
-  biome3Rooms: []
+  biome3Rooms:
+  - {fileID: 3626080960510752778, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
+  - {fileID: 415292441413070556, guid: bc8fdf879c907d040b4bcd0d6d103788, type: 3}
+  - {fileID: 7664761247907676086, guid: ea10934021b7b784680f0cce658d444c, type: 3}
   treasureRoom: {fileID: 0}
-  bossRoom: {fileID: 0}
-  biome1RoomCount: 3
+  bossRoom: {fileID: 3266387043875843558, guid: 348cd8bb2b7fd9647a880891f077976b, type: 3}
+  biome1RoomCount: 5
   biome2RoomCount: 3
-  biome3RoomCount: 0
+  biome3RoomCount: 3
   roomWidth: 21
+  roomHeight: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1784,4 +1734,3 @@ SceneRoots:
   - {fileID: 769896702}
   - {fileID: 1203515166}
   - {fileID: 1903393973}
-  - {fileID: 650539119}

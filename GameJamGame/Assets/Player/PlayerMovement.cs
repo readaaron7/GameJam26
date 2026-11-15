@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -23,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private bool wasGrounded;
 
+    [SerializeField] private CameraController cam;
+    private bool isGroundSlaming;
+
 
     private void Awake()
     {
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
 
         isGrounded = true;
+        isGroundSlaming = false;
 
         if (isGrounded)
         {
@@ -69,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (controls.PlayerControls.GroundSlam.WasPressedThisFrame() && !isGrounded)
         {
+            isGroundSlaming = true;
             groundSlam();
         }
 
@@ -107,9 +111,15 @@ public class PlayerMovement : MonoBehaviour
                     // pauses everything in update, then continues after function finishes
                     StartCoroutine(DropThroughPlatform());
                 }
-            }
-            
-            
+            }  
+        }
+
+        // shakes the camera when the player just did a ground slam and is now grounded
+        if (isGroundSlaming && isGrounded)
+        {
+            cam.CameraShake(.15f, 1f);
+
+            isGroundSlaming = false;
         }
 
         
