@@ -10,33 +10,39 @@ public class CameraController : MonoBehaviour
     private Vector3 targetPosition;
     private Vector3 originalPosition;
     private Vector3 cameraShakeOffset;
+    public bool playerIsAlive;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         targetPosition = transform.position;
         cameraShakeOffset = Vector3.zero;
+        playerIsAlive = true;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        // calcules both room indexes based on the player's position
-        int roomX = Mathf.FloorToInt(player.position.x / roomWidth);
-        int roomY = Mathf.FloorToInt(player.position.y / roomHeight);
+        if (playerIsAlive)
+        {
+            // calcules both room indexes based on the player's position
+            int roomX = Mathf.FloorToInt(player.position.x / roomWidth);
+            int roomY = Mathf.FloorToInt(player.position.y / roomHeight);
 
-        // calcultes the target position for the camera to move
-        float targetX = roomX * roomWidth + roomWidth / 2f;
-        float targetY = roomY * roomHeight + roomHeight / 2f;
+            // calcultes the target position for the camera to move
+            float targetX = roomX * roomWidth + roomWidth / 2f;
+            float targetY = roomY * roomHeight + roomHeight / 2f;
 
-        targetPosition = new Vector3(targetX, targetY, transform.position.z);
+            targetPosition = new Vector3(targetX, targetY, transform.position.z);
+            
+            
+            transform.position = Vector3.Lerp(
+                transform.position,
+                targetPosition + cameraShakeOffset, // includes the shake effect in movement
+                moveSpeed * Time.deltaTime
+            );
+        }
         
-        
-        transform.position = Vector3.Lerp(
-            transform.position,
-            targetPosition + cameraShakeOffset, // includes the shake effect in movement
-            moveSpeed * Time.deltaTime
-        );
     }
 
     public void CameraShake(float duration, float magnitude)
@@ -67,5 +73,6 @@ public class CameraController : MonoBehaviour
         }
 
         cameraShakeOffset = Vector3.zero; // resets offest back to zero after shaking is done
+        transform.position = originalPosition;
     }
 }

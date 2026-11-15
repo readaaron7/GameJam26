@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -46,15 +47,25 @@ public class PlayerMovement : MonoBehaviour
         // reads the movement of the player
         moveInput = controls.PlayerControls.Move.ReadValue<Vector2>();
 
+        // flip player sacle depending on moving left or right
+        if (moveInput.x > 0 && transform.localScale.x < 0)
+        {
+            // moving right and needs to flip scale
+            Vector3 playerScale = transform.localScale;
+            playerScale.x *= -1;
+            transform.localScale = playerScale;
+        }
+        else if (moveInput.x < 0 && transform.localScale.x > 0)
+        {
+            // moving left and needs to flip scale
+            Vector3 playerScale = transform.localScale;
+            playerScale.x *= -1;
+            transform.localScale = playerScale;
+        }
+
         // update position of player each frame
         body.linearVelocity = new Vector2(moveInput.x * moveSpeed, body.linearVelocity.y);
 
-        // JUMP
-        // normal jumping if the player is grounded
-        // if (controls.PlayerControls.Jump.WasPressedThisFrame() && isGrounded)
-        // {
-        //     Jump();
-        // }
         // double jumping if the player has jumps remaining
         if (controls.PlayerControls.Jump.WasPressedThisFrame() && jumpsRemaining > 0)
         {
