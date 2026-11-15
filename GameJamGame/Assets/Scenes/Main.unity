@@ -2408,6 +2408,63 @@ MonoBehaviour:
   biome3RoomCount: 3
   roomWidth: 21
   roomHeight: 10
+--- !u!1001 &4927975568248699463
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5420943108336112235, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.84942
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420943108336112235, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.36757
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420943108336112235, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420943108336112235, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420943108336112235, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420943108336112235, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420943108336112235, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420943108336112235, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420943108336112235, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420943108336112235, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347166926022960154, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
+      propertyPath: m_Name
+      value: Biome2_C
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4307d0975b2d00145866b38e2377f77a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2420,3 +2477,4 @@ SceneRoots:
   - {fileID: 769896702}
   - {fileID: 1203515166}
   - {fileID: 1903393973}
+  - {fileID: 4927975568248699463}
