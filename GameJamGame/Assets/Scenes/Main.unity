@@ -1708,7 +1708,7 @@ MonoBehaviour:
   - {fileID: 4069558526169530997, guid: 849edc960cdb85c4b8a729d2d4a1edd3, type: 3}
   - {fileID: 8516215538992065930, guid: 5ae298d99d940934fb2b6740a29abb29, type: 3}
   biome2Rooms:
-  - {fileID: 3626080960510752778, guid: 63913a113f0741d42b56070eeacb9d59, type: 3}
+  - {fileID: 3174053737694856479, guid: c4028533ea16290478a1ad869c6031eb, type: 3}
   - {fileID: 415292441413070556, guid: bc8fdf879c907d040b4bcd0d6d103788, type: 3}
   - {fileID: 7664761247907676086, guid: ea10934021b7b784680f0cce658d444c, type: 3}
   biome3Rooms:
