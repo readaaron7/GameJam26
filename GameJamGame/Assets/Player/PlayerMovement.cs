@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.red;
 
         Gizmos.DrawLine(
-            (Vector2)transform.position + Vector2.down * 1.5f,
+            (Vector2)transform.position + Vector2.down * 0.5f,
             transform.position + Vector3.down * groundCheckDistance
         );
     }
@@ -243,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
 
     private RaycastHit2D CreateRaycast()
     {
-        Vector2 rayPosition = (Vector2)transform.position + Vector2.down * 1.5f;
+        Vector2 rayPosition = (Vector2)transform.position + Vector2.down * 0.5f;
 
         RaycastHit2D hit = Physics2D.Raycast(
             rayPosition,
