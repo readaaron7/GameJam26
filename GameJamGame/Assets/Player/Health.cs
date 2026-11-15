@@ -5,53 +5,37 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private Image[] hearts;
     [SerializeField] private Animator animator;
-    private PlayerActions controls;
+    [SerializeField] private PlayerMovement movementScript;
+    [SerializeField] private PlayerAttack attackScript;
+    [SerializeField] private CameraController cam;
 
     private int currentHealth;
 
-    private void Awake()
-    {
-        controls = new PlayerActions();
-    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         currentHealth = hearts.Length;
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        
-        if (controls.PlayerControls.TakeDamage.WasPressedThisFrame())
-        {
-            TakeDamage();
-        }
-    }
-
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable();
-    }
-
     public void TakeDamage()
     {
-        
-        if (currentHealth > 0)
-        {
-            currentHealth--;
-        }
+        currentHealth--;
         
         if (currentHealth <= 0)
         {
+            cam.playerIsAlive = false;
             currentHealth = 0;
             animator.speed = 0f;
-            Debug.Log("player dead");
+
+            Destroy(gameObject); // gets rid of the player game object when dead
+
+            // stop player moving
+            movementScript.enabled = false;
+            attackScript.enabled = false;
+
+            GetComponent<Collider2D>().enabled = false;
+
+            
         }
 
         UpdateHealth();
@@ -59,6 +43,17 @@ public class Health : MonoBehaviour
 
     private void UpdateHealth()
     {
-        hearts[currentHealth].enabled = false;
+        // iterates through player hearts
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < currentHealth)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
     }
 }
