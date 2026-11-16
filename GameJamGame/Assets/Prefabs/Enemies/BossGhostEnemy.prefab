@@ -274,6 +274,7 @@ MonoBehaviour:
   patrolScript: {fileID: 1434281106009360741}
   attackScript: {fileID: 8231322221287492087}
   spriteRenderer: {fileID: 3035561930884880729}
+  isBoss: 1
 --- !u!1 &4762656261175113717
 GameObject:
   m_ObjectHideFlags: 0
