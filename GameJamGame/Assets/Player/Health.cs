@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -35,6 +36,8 @@ public class Health : MonoBehaviour
 
             GetComponent<Collider2D>().enabled = false;
 
+            // switches to the game over scene
+            SceneManager.LoadScene("GameOver");
             
         }
 
