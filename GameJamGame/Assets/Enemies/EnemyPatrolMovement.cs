@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyPatrolMovement : MonoBehaviour
 {
@@ -31,9 +30,16 @@ public class EnemyPatrolMovement : MonoBehaviour
             {
                 movingRight = false;
 
-                Vector3 enemyScale = transform.localScale;
-                enemyScale.x = -1; // flips the enemy
-                transform.localScale = enemyScale; // updates enemy scale
+                // Vector3 enemyScale = transform.localScale;
+                // Debug.Log("enemy flip");
+                // enemyScale.x *= -1; // flips the enemy
+                // transform.localScale = enemyScale; // updates enemy scale
+
+                transform.localScale = new Vector3(
+                    -transform.localScale.x,
+                    transform.localScale.y,
+                    transform.localScale.z
+                );
             }
         }
         else // moving left
@@ -48,13 +54,18 @@ public class EnemyPatrolMovement : MonoBehaviour
             {
                 movingRight = true;
 
-                Vector3 enemyScale = transform.localScale;
-                enemyScale.x = 1; // flips the enemy
-                transform.localScale = enemyScale; // updates enemy scale
+                // Vector3 enemyScale = transform.localScale;
+                // enemyScale.x *= -1; // flips the enemy
+                // transform.localScale = enemyScale; // updates enemy scale
+
+                transform.localScale = new Vector3(
+                    -transform.localScale.x,
+                    transform.localScale.y,
+                    transform.localScale.z
+                );
             }
         }
         
-
 
     }
 }

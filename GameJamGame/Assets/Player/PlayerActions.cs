@@ -123,16 +123,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""priority"": 0
                 },
                 {
-                    ""name"": ""TakeDamage"",
-                    ""type"": ""Button"",
-                    ""id"": ""4c79e290-1abb-4b14-bf19-e99959b16af8"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false,
-                    ""priority"": 0
-                },
-                {
                     ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""2b84d50c-5e15-4337-9706-cf58d6a59a77"",
@@ -221,17 +211,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""83818765-e898-458d-a3c4-f79fa249c218"",
-                    ""path"": ""<Keyboard>/h"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TakeDamage"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""c9b8a714-7925-4a71-bd12-570d2267699c"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -273,7 +252,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_PlayerControls_Move = m_PlayerControls.FindAction("Move", throwIfNotFound: true);
         m_PlayerControls_Jump = m_PlayerControls.FindAction("Jump", throwIfNotFound: true);
         m_PlayerControls_DropThroughPlatform = m_PlayerControls.FindAction("DropThroughPlatform", throwIfNotFound: true);
-        m_PlayerControls_TakeDamage = m_PlayerControls.FindAction("TakeDamage", throwIfNotFound: true);
         m_PlayerControls_Dash = m_PlayerControls.FindAction("Dash", throwIfNotFound: true);
         m_PlayerControls_GroundSlam = m_PlayerControls.FindAction("GroundSlam", throwIfNotFound: true);
         m_PlayerControls_StandardAttack = m_PlayerControls.FindAction("StandardAttack", throwIfNotFound: true);
@@ -360,7 +338,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControls_Move;
     private readonly InputAction m_PlayerControls_Jump;
     private readonly InputAction m_PlayerControls_DropThroughPlatform;
-    private readonly InputAction m_PlayerControls_TakeDamage;
     private readonly InputAction m_PlayerControls_Dash;
     private readonly InputAction m_PlayerControls_GroundSlam;
     private readonly InputAction m_PlayerControls_StandardAttack;
@@ -387,10 +364,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerControls/DropThroughPlatform".
         /// </summary>
         public InputAction @DropThroughPlatform => m_Wrapper.m_PlayerControls_DropThroughPlatform;
-        /// <summary>
-        /// Provides access to the underlying input action "PlayerControls/TakeDamage".
-        /// </summary>
-        public InputAction @TakeDamage => m_Wrapper.m_PlayerControls_TakeDamage;
         /// <summary>
         /// Provides access to the underlying input action "PlayerControls/Dash".
         /// </summary>
@@ -438,9 +411,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @DropThroughPlatform.started += instance.OnDropThroughPlatform;
             @DropThroughPlatform.performed += instance.OnDropThroughPlatform;
             @DropThroughPlatform.canceled += instance.OnDropThroughPlatform;
-            @TakeDamage.started += instance.OnTakeDamage;
-            @TakeDamage.performed += instance.OnTakeDamage;
-            @TakeDamage.canceled += instance.OnTakeDamage;
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
@@ -470,9 +440,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @DropThroughPlatform.started -= instance.OnDropThroughPlatform;
             @DropThroughPlatform.performed -= instance.OnDropThroughPlatform;
             @DropThroughPlatform.canceled -= instance.OnDropThroughPlatform;
-            @TakeDamage.started -= instance.OnTakeDamage;
-            @TakeDamage.performed -= instance.OnTakeDamage;
-            @TakeDamage.canceled -= instance.OnTakeDamage;
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
@@ -543,13 +510,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDropThroughPlatform(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "TakeDamage" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnTakeDamage(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

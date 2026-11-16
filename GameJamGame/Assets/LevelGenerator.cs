@@ -39,24 +39,24 @@ public class LevelGenerator : MonoBehaviour
             boolSpawnBossRoom = true;
         }
         // generate biome 1 rooms
-        GenerateBiome(biome1Rooms, biome1RoomCount, biome1StartPos, false);
+        GenerateBiome(biome1Rooms, biome1RoomCount, biome1StartPos, false, true);
 
         // generate biome 2 above biome 1
         if (biome2StartPos != Vector3.zero)
         {
             biome2StartPos += Vector3.up * roomHeight;
-            GenerateBiome(biome2Rooms, biome2RoomCount, biome2StartPos, boolSpawnBossRoom);
+            GenerateBiome(biome2Rooms, biome2RoomCount, biome2StartPos, boolSpawnBossRoom, false);
         }
 
         // generate biome 3 below biome 1
         if (biome3StartPos != Vector3.zero)
         {
             biome3StartPos += Vector3.down * roomHeight;
-            GenerateBiome(biome3Rooms, biome3RoomCount, biome3StartPos, !boolSpawnBossRoom);
+            GenerateBiome(biome3Rooms, biome3RoomCount, biome3StartPos, !boolSpawnBossRoom, false);
         }
     }
 
-    private void GenerateBiome(GameObject[] biomeRooms, int biomeRoomCount, Vector3 startPosition, bool spawnBossRoom)
+    private void GenerateBiome(GameObject[] biomeRooms, int biomeRoomCount, Vector3 startPosition, bool spawnBossRoom, bool isFirstBiome)
     {
         int[] counting_arr = new int[biomeRooms.Length]; // counting array
         
@@ -92,14 +92,18 @@ public class LevelGenerator : MonoBehaviour
             // position, and puts it at rotation 0 degrees
             Instantiate(biomeRooms[randIndex], startPosition, Quaternion.identity);
 
-            if (randIndex == 3)
+            if (isFirstBiome)
             {
-                biome2StartPos = startPosition;
+                if (randIndex == 3)
+                {
+                    biome2StartPos = startPosition;
+                }
+                else if (randIndex == 4)
+                {
+                    biome3StartPos = startPosition;
+                }
             }
-            else if (randIndex == 4)
-            {
-                biome3StartPos = startPosition;
-            }
+            
 
             startPosition.x += roomWidth;
         }
