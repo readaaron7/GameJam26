@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93d8aaac6fcde6468c4902261a24edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  health: 10
+  health: 5
   animator: {fileID: 4685024048419565730}
   patrolScript: {fileID: 1434281106009360741}
   attackScript: {fileID: 8231322221287492087}
