@@ -3,11 +3,13 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     private PlayerActions controls;
-    private EnemyHealth enemyInRange;
+    public EnemyHealth enemyInRange;
     [SerializeField] private Animator slashAnimator;
     [SerializeField] private float attackCooldown;
     private float attackTimer;
     private bool canAttack;
+
+     
 
     private void Awake()
     {

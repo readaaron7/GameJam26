@@ -1,5 +1,6 @@
 using System.Collections;
 using NUnit.Framework.Constraints;
+using Unity.Collections.Tests.CoreCLR.TestJobs;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -34,11 +35,17 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAttack playerAttack;
     private Health playerHealth;
 
+
+    private EnemyHealth enemyInRange;
+    
+
     private void Awake()
     {
 
         controls = new PlayerActions();
         body = GetComponent<Rigidbody2D>();
+        playerAttack = GetComponentInChildren<PlayerAttack>(true);
+        
 
         isGrounded = true;
         isGroundSlaming = false;
@@ -146,8 +153,12 @@ public class PlayerMovement : MonoBehaviour
         if (isGroundSlaming && isGrounded)
         {
             cam.CameraShake(.15f, 1f);
-
             isGroundSlaming = false;
+            enemyInRange = playerAttack.enemyInRange;
+            if (enemyInRange)
+            {
+                enemyInRange.TakeDamage();
+            }
             
         }
 
@@ -211,6 +222,7 @@ public class PlayerMovement : MonoBehaviour
     private void groundSlam()
     {  
         body.linearVelocity = new Vector2(0f, groundSlamSpeed);
+       
     }
 
    
