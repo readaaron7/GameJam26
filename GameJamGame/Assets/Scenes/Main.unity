@@ -1495,11 +1495,13 @@ MonoBehaviour:
   jumpPower: 15
   groundSlamSpeed: -50
   dashSpeed: 30
+  groundSlamIframes: 1.5
   playerCollider: {fileID: 1203515169}
   groundCheckDistance: 1.3
   groundLayer:
     serializedVersion: 2
     m_Bits: 320
+  isInvulnerable: 0
   cam: {fileID: 519420033}
 --- !u!50 &1203515168
 Rigidbody2D:
@@ -2299,7 +2301,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: b8fa4b0a2efbb714ab528e92189c69bd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.029
   m_Pitch: 1
   Loop: 1
   Mute: 0

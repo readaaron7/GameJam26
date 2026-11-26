@@ -1,4 +1,5 @@
 using System.Collections;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundSlamSpeed;
     [SerializeField] private float dashSpeed;
 
+    [SerializeField] private float groundSlamIframes;
+
     // double jump logic variables
     private int jumpsRemaining;
     private const int MAX_JUMPS = 2;
@@ -20,14 +23,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     
     private bool isGrounded;
+    private bool isDashing;
+    public bool isInvulnerable;
     private bool wasGrounded;
 
     [SerializeField] private CameraController cam;
     private bool isGroundSlaming;
 
+    private EnemyHealth enemyHealth;
+    private PlayerAttack playerAttack;
+    private Health playerHealth;
 
     private void Awake()
     {
+
         controls = new PlayerActions();
         body = GetComponent<Rigidbody2D>();
 
@@ -83,19 +92,25 @@ public class PlayerMovement : MonoBehaviour
         if (controls.PlayerControls.GroundSlam.WasPressedThisFrame() && !isGrounded)
         {
             isGroundSlaming = true;
+            isInvulnerable = true;
+            StartCoroutine(ground_slam_invulnerabilitytimer());
             groundSlam();
         }
 
         if(controls.PlayerControls.Dash.WasPressedThisFrame() && (body.linearVelocity.x > 0))
         {
+            isInvulnerable = true;
             StartCoroutine(dash_right());
+           
         }
 
         if(controls.PlayerControls.Dash.WasPressedThisFrame() && (body.linearVelocity.x < 0))
         {
+            isInvulnerable = true;
             StartCoroutine(dash_left());
+           
         }
-
+    
 
         // set if the player was grounded this frame
         // need to work for double jump detection
@@ -119,7 +134,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     // performs some logic with the player dropping through the platform,
                     // pauses everything in update, then continues after function finishes
+                    isInvulnerable = true;
+                    StartCoroutine(ground_slam_invulnerabilitytimer());
                     StartCoroutine(DropThroughPlatform());
+                   
                 }
             }  
         }
@@ -130,10 +148,18 @@ public class PlayerMovement : MonoBehaviour
             cam.CameraShake(.15f, 1f);
 
             isGroundSlaming = false;
+            
         }
 
         
         
+    }
+
+   IEnumerator ground_slam_invulnerabilitytimer()
+    {
+        
+        yield return new WaitForSeconds(groundSlamIframes);
+        isInvulnerable = false;
     }
 
 
@@ -187,7 +213,8 @@ public class PlayerMovement : MonoBehaviour
         body.linearVelocity = new Vector2(0f, groundSlamSpeed);
     }
 
-
+   
+   
     private void Jump()
     {
         body.linearVelocity = new Vector2(body.linearVelocity.x, jumpPower);
@@ -205,6 +232,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
 
         }
+        isInvulnerable = false;
 
     }
     
@@ -219,7 +247,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
             
         }
-
+        isInvulnerable = false;
     }
 
 
@@ -246,6 +274,7 @@ public class PlayerMovement : MonoBehaviour
         
         yield return new WaitForSeconds(.25f);
         body.linearVelocity = new Vector2(body.linearVelocity.x, groundSlamSpeed);
+        isGroundSlaming = true;
         Physics2D.IgnoreCollision(playerCollider, hit.collider, false);
         
         

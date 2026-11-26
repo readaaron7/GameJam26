@@ -8,9 +8,13 @@ public class EnemyAttack : MonoBehaviour
     private bool canAttack;
     [SerializeField] private Animator slashAnimator;
 
+    private PlayerMovement isInvulnerable;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        isInvulnerable = player.GetComponent<PlayerMovement>();
         canAttack = true;
     }
 
@@ -33,11 +37,11 @@ public class EnemyAttack : MonoBehaviour
     // when the player runs into the enemy, the player will take damage
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && canAttack)
+        if (collision.CompareTag("Player") && canAttack && !isInvulnerable.isInvulnerable)
         {
             // gets the player's health component
             Health playerHealth = collision.GetComponent<Health>();
-
+        
             playerHealth.TakeDamage();
             slashAnimator.Play("AttackSlash", 0, 0); // play the slash attack animation once
             canAttack = false;
