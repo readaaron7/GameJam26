@@ -16,9 +16,9 @@ MonoBehaviour:
   itemName: Ghost Legs
   healthBuff: 0
   damageBuff: 0
-  speedBuff: 0
+  speedBuff: 1
   intelligenceBuff: 0
   visionBuff: 0
   hungerDebuff: 0
-  itemIcon: {fileID: 0}
-  partSprite: {fileID: 0}
+  itemIcon: {fileID: 7847332253000710775, guid: bd733ddee132a4d49a0652318315e475, type: 3}
+  partSprite: {fileID: 7847332253000710775, guid: bd733ddee132a4d49a0652318315e475, type: 3}

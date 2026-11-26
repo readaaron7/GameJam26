@@ -7,6 +7,8 @@ public class ItemDropper : MonoBehaviour
     public GameObject itemprefab;
     private EnemyHealth enemyHealth;
 
+  
+
     private void Start()
     {
         enemyHealth = GetComponent<EnemyHealth>();
@@ -34,6 +36,7 @@ public class ItemDropper : MonoBehaviour
             Quaternion.identity);
 
             droppedItem.GetComponent<SpriteRenderer>().sprite = item.itemIcon;
+            droppedItem.GetComponent<ItemController>().item = item;
             }
         }
      

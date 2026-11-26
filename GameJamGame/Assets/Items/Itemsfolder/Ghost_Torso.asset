@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c65af814be2e024ea5dc3172956372e, type: 3}
   m_Name: Ghost_Torso
   m_EditorClassIdentifier: Assembly-CSharp::itemdatabase
-  slot: 0
-  itemName: 
-  healthBuff: 0
+  slot: 2
+  itemName: Ghost Torso
+  healthBuff: 1
   damageBuff: 0
   speedBuff: 0
   intelligenceBuff: 0
   visionBuff: 0
   hungerDebuff: 0
-  itemIcon: {fileID: 0}
-  partSprite: {fileID: 0}
+  itemIcon: {fileID: -7088616189401048322, guid: 71ac3a9c2a29bc3498f387c58c5d3420, type: 3}
+  partSprite: {fileID: -7088616189401048322, guid: 71ac3a9c2a29bc3498f387c58c5d3420, type: 3}
