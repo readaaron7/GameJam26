@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4946998264682375495}
   - component: {fileID: 4403613075875216641}
   - component: {fileID: 6700364682117809238}
+  - component: {fileID: 5040865259900402188}
   m_Layer: 9
   m_Name: Ghost
   m_TagString: Untagged
@@ -240,6 +241,25 @@ MonoBehaviour:
   patrolScript: {fileID: 3470269398159326245}
   attackScript: {fileID: 5197607145767045389}
   spriteRenderer: {fileID: 5077470419211568173}
+  isBoss: 0
+--- !u!114 &5040865259900402188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484032649377660492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a777cd3caa76f4e9ce5853313323c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
+  allItems:
+  - {fileID: 11400000, guid: b8aaf1cb382df1742abab4700c3974d5, type: 2}
+  - {fileID: 11400000, guid: 924b2cca8003df04396868df4a7e51c7, type: 2}
+  - {fileID: 11400000, guid: 28cab6819582c3c4a8039cd2ffe40b00, type: 2}
+  - {fileID: 11400000, guid: b157d240f5091ed4b879f0b37bdcee9b, type: 2}
+  itemprefab: {fileID: 7280772542223279396, guid: 288a761a73edaeb4ab1e3d2a90ae2be6, type: 3}
 --- !u!1 &5404840759596995739
 GameObject:
   m_ObjectHideFlags: 0

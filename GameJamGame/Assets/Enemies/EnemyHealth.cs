@@ -14,6 +14,14 @@ public class EnemyHealth : MonoBehaviour
     // tells if the enemy attached to this script is a boss or not
     [SerializeField] private bool isBoss;
 
+    public int Health => health;
+
+    private ItemDropper itemDropper;
+
+    private void Start()
+    {
+        itemDropper = GetComponent<ItemDropper>();
+    }
 
     public void TakeDamage()
     {
@@ -37,7 +45,7 @@ public class EnemyHealth : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
 
             Destroy(gameObject, 1); // gets rid of the enemy game object when dead
-            
+            itemDropper.DropItem(transform.position); // drops an item when the enemy dies
 
             if (isBoss)
             {
