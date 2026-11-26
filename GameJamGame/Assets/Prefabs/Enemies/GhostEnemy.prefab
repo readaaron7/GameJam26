@@ -260,6 +260,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 28cab6819582c3c4a8039cd2ffe40b00, type: 2}
   - {fileID: 11400000, guid: b157d240f5091ed4b879f0b37bdcee9b, type: 2}
   itemprefab: {fileID: 7280772542223279396, guid: 288a761a73edaeb4ab1e3d2a90ae2be6, type: 3}
+  dropChance: 50
 --- !u!1 &5404840759596995739
 GameObject:
   m_ObjectHideFlags: 0

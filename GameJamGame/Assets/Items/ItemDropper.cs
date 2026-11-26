@@ -7,11 +7,13 @@ public class ItemDropper : MonoBehaviour
     public GameObject itemprefab;
     private EnemyHealth enemyHealth;
 
+    [SerializeField] private float dropChance; // percentage chance of dropping an item
   
 
     private void Start()
     {
         enemyHealth = GetComponent<EnemyHealth>();
+         
     }
 
    
@@ -22,6 +24,11 @@ public class ItemDropper : MonoBehaviour
         // check if the enemy is dead
         if (enemyHealth.Health <= 0)
         {
+            if(Random.value > dropChance / 100f)
+            {
+                Debug.Log("No item dropped");
+                return;
+            }
             if (allItems.Length == 0)
             {
                 Debug.LogWarning("No items in the item database!");
